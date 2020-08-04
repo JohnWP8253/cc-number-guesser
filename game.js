@@ -48,7 +48,20 @@ guessButton = addEventListener('click', () => {
 })
 
 nextRoundButton.addEventListener('click', () => {
-    // increase round number
-    advanceRound();
+  // increase round number
+  advanceRound()
+  // display new round number
+  roundNumDisplay.innerText = currentRoundNum
 
+  // set correct disabled state for the buttons
+  nextRoundButton.setAttribute('disabled', true)
+  guessButton.removeAttribute('disabled')
+
+  // reset the guess input box and the target number display
+  targetNumDisplay.innerText = '?'
+  guessButton.innerText = 'Make a Guess'
+  humanGuessInput.value = ''
+  computerGuessDisplay.innerText = '?'
+  computerWinsDisplay.innerText = ''
+  guessButton.classList.remove('winning-text')
 })
