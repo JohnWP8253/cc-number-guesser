@@ -41,6 +41,14 @@ header {
   align-items: center;
   padding: 19px;
 }
+
+.guessing-area {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-bottom: 60px;
+}
+
 .guess-title {
   display: flex;
   flex-direction: column;
@@ -116,6 +124,17 @@ header {
   border-top-right-radius: 22.5px;
   border-bottom-right-radius: 22.5px;
   border-left-width: 0px;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-around;
+}
+
+.button {
+    background-color: #4c7ef3;
+    color: #ffffff;
+    cursor: pointer;
 }
 
 #guess {
