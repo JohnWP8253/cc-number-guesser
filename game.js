@@ -2,97 +2,98 @@ let target
 
 const humanGuessInput = document.getElementById('human-guess')
 
-const roundNumDisplay = document.getElementById('round-num')
+const roundNumberDisplay = document.getElementById('round-num')
 
 const computerGuessDisplay = document.getElementById('computer-guess')
 const humanScoreDisplay = document.getElementById('human-score')
 const computerScoreDisplay = document.getElementById('computer-score')
-const targetNumDisplay = document.getElementById('target-num')
+const targetNumberDisplay = document.getElementById('target-num')
 const computerWinsDisplay = document.getElementById('computer-wins')
 
 const guessButton = document.getElementById('guess')
 const nextRoundButton = document.getElementById('next-round')
 
-guessButton = addEventListener('click', () => {
-  // generate the target value
+guessButton.addEventListener('click', () => {
+  // Generate the target value
   target = generateTarget()
-  // retrieve the player's guess
+  // Retrieve the player's guess
   const currentHumanGuess = humanGuessInput.value
-  // make a random 'computer guess'
+  // Make a random 'computer guess'
   const computerGuess = Math.floor(Math.random() * 10)
 
-  // display the computer guess and the target
+  // Display the computer guess and the target
   computerGuessDisplay.innerText = computerGuess
-  targetNumDisplay.innerText = target
+  targetNumberDisplay.innerText = target
 
-  // determine who won
+  // Determine if the human or computer wins:
   const humanIsWinner = compareGuesses(currentHumanGuess, computerGuess, target)
   const winner = humanIsWinner ? 'human' : 'computer'
 
-  // update the correct score
+  // Update the correct score:
   updateScore(winner)
 
+  // Display the winner
   if (humanIsWinner) {
-    guessButton.innerText = 'You win!!!'
+    guessButton.innerText = 'You Win!!!!!'
     guessButton.classList.toggle('winning-text')
   } else {
-    computerWinsDisplay.innerText = 'Computer wins!!!'
+    computerWinsDisplay.innerText = 'Computer Wins!!!'
   }
-  // display the current scores
+
+  // winnerDisplay.innerText = humanIsWinner ? 'You win!' : 'Computer wins!';
+
+  // Display the current scores:
   humanScoreDisplay.innerText = humanScore
   computerScoreDisplay.innerText = computerScore
 
-  // set the correct disabled state for the buttons
+  // Set the correct disabled state for the buttons
   guessButton.setAttribute('disabled', true)
   nextRoundButton.removeAttribute('disabled')
 })
 
 nextRoundButton.addEventListener('click', () => {
-  // increase round number
+  // Increase the round number
   advanceRound()
-  // display new round number
-  roundNumDisplay.innerText = currentRoundNum
+  // Display the new round number
+  roundNumberDisplay.innerText = currentRoundNum
 
-  // set correct disabled state for the buttons
+  // Set the correct disabled state for the buttons
   nextRoundButton.setAttribute('disabled', true)
   guessButton.removeAttribute('disabled')
 
-  // reset the guess input box and the target number display
-  targetNumDisplay.innerText = '?'
+  // Reset the guess input box and the target number display:
+  targetNumberDisplay.innerText = '?'
   guessButton.innerText = 'Make a Guess'
   humanGuessInput.value = ''
   computerGuessDisplay.innerText = '?'
   computerWinsDisplay.innerText = ''
   guessButton.classList.remove('winning-text')
-});
+})
 
-const addButton = document.getElementById('add');
-const subtractButton = document.getElementById('subtract');
+const addButton = document.getElementById('add')
+const subtractButton = document.getElementById('subtract')
 
 addButton.addEventListener('click', () => {
-    humanGuessInput.value = +humanGuessInput.value + 1;
-    handleValueChange(humanGuessInput.value);
-});
+  humanGuessInput.value = +humanGuessInput.value + 1
+  handleValueChange(humanGuessInput.value)
+})
 
 subtractButton.addEventListener('click', () => {
-    humanGuessInput.value = +humanGuessInput.value - 1;
-    handleValueChange(humanGuessInput.value);
-});
+  humanGuessInput.value = +humanGuessInput.value - 1
+  handleValueChange(humanGuessInput.value)
+})
 
 const handleValueChange = value => {
-    if (value > 0 && value <= 9) {
-        // if the value is from 1 to 9, activate the subtract and add buttons
-        subtractButton.removeAttribute('disabled');
-        addButton.removeAttribute('disabled');
-    } else if (value > 9) {
-        // if the value is greater than 9, then disable the add button
-        addButton.setAttribute('disabled'. true);
-    } else if (value <= 0) {
-        // if the value is less than or equal to zero, disable the subtract button
-        subtractButton.setAttribute('disabled', true);
-    }
+  if (value > 0 && value <= 9) {
+    subtractButton.removeAttribute('disabled')
+    addButton.removeAttribute('disabled')
+  } else if (value > 9) {
+    addButton.setAttribute('disabled', true)
+  } else if (value <= 0) {
+    subtractButton.setAttribute('disabled', true)
+  }
 }
 
-humanGuessInput.addEventListener('input', function(e) {
-    handleValueChange(e.target.value);
-});
+humanGuessInput.addEventListener('input', function (e) {
+  handleValueChange(e.target.value)
+})
