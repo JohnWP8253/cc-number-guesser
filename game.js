@@ -64,4 +64,19 @@ nextRoundButton.addEventListener('click', () => {
   computerGuessDisplay.innerText = '?'
   computerWinsDisplay.innerText = ''
   guessButton.classList.remove('winning-text')
-})
+});
+
+const addButton = document.getElementById('add');
+const subtractButton = document.getElementById('subtract');
+
+addButton.addEventListener('click', () => {
+    humanGuessInput.value = +humanGuessInput.value + 1;
+    handleValueChange(humanGuessInput.value);
+});
+
+subtractButton.addEventListener('click', () => {
+    humanGuessInput.value = +humanGuessInput.value - 1;
+    handleValueChange(humanGuessInput.value);
+});
+
+
