@@ -79,4 +79,18 @@ subtractButton.addEventListener('click', () => {
     handleValueChange(humanGuessInput.value);
 });
 
+const handleValueChange = value => {
+    if (value > 0 && value <= 9) {
+        // if the value is from 1 to 9, activate the subtract and add buttons
+        subtractButton.removeAttribute('disabled');
+        addButton.removeAttribute('disabled');
+    } else if (value > 9) {
+        // if the value is greater than 9, then disable the add button
+        addButton.setAttribute('disabled'. true);
+    } else if (value <= 0) {
+        // if the value is less than or equal to zero, disable the subtract button
+        subtractButton.setAttribute('disabled', true);
+    }
+}
+
 
