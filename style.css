@@ -99,7 +99,7 @@ header h1{
 #computer-guess {
   font-size: 50px;
   font-weight: 700;
-  color: #a5a5a5;
+  color: #DD1B79;
 }
 
 .human-guess {
@@ -121,7 +121,7 @@ header h1{
 }
 
 .num-control {
-  border: solid 1px#DD1B79;
+  border: solid 1px #DD1B79;
   display: inline-block;
   width: 45px;
   height: 35px;
@@ -148,7 +148,7 @@ header h1{
 }
 
 .button {
-    background-color: #DD1B79;
+    background-color: #de428d;
     color: #ffffff;
     cursor: pointer;
 }
@@ -179,7 +179,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .button[disabled] {
-  background-color: #d2d2d2;
+  background-color: #e99cc1;
   color: #c1bfbf;
   cursor: default;
 }
