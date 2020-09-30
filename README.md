@@ -13,6 +13,6 @@ John Pendergrass AKA Coder Cub
 3. Click 'Next Round' to play again.
 
 ## Demo GIF
-
+<img src="https://github.com/Coder-Cub/cc-number-guesser/blob/master/images/cc-numguess.gif">
 
 
