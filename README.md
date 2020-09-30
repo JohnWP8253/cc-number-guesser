@@ -12,4 +12,7 @@ John Pendergrass AKA Coder Cub
 2. Click 'Make a Guess'.
 3. Click 'Next Round' to play again.
 
+## Demo GIF
+
+
 
